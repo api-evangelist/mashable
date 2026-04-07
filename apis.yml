@@ -1,15 +1,13 @@
 aid: mashable
-url: 
-  https://raw.githubusercontent.com/api-evangelist/mashable/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/mashable/refs/heads/main/apis.yml
 apis:
   - aid: mashable:mashable-via-newsapi
     name: Mashable via News API
     tags:
-      - News
       - Articles
       - Headlines
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - News
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://newsapi.org
     humanURL: https://newsapi.org/s/mashable-api
     properties:
@@ -30,12 +28,11 @@ apis:
       article title, description, URL, image URL, publication date, and author.
 name: Mashable
 tags:
+  - Digital Culture
   - Media
   - Technology News
-  - Digital Culture
 type: Index
-image: 
-  https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
   - url: https://mashable.com/
