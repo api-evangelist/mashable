@@ -1,8 +1,8 @@
-# Mashable (mashable)
+## Mashable (mashable)
 
-Mashable (https://mashable.com/) is a digital media and entertainment company covering tech, culture, and digital trends. Founded in 2005, Mashable has grown into a global, multi-platform media and entertainment company serving a dedicated and influential audience with content across technology, science, entertainment, and digital culture. Mashable is owned by Ziff Davis and is headquartered in New York City, with a social media reach extending to tens of millions of followers across platforms including X (Twitter), Facebook, Instagram, YouTube, and LinkedIn.
+Mashable (https://mashable.com/) is a digital media and entertainment company covering tech, culture, and digital trends. Founded in 2005, Mashable has grown into a global, multi-platform media and entertainment company serving a dedicated and influential audience with content across technology, science, entertainment, and digital culture. Mashable is owned by Ziff Davis and is headquartered in New York City. Mashable does not publish a first-party REST API, but its headlines and articles are accessible via the third-party News API REST service.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/mashable/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/mashable/refs/heads/main/apis.yml)
+**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/mashable/refs/heads/main/apis.yml)
 
 ## Scope
 
@@ -11,12 +11,12 @@ Mashable (https://mashable.com/) is a digital media and entertainment company co
 
 ## Tags:
 
- - Media, Technology News, Digital Culture
+ - Articles, Digital Culture, Headlines, Media, News, Technology News
 
 ## Timestamps
 
 - **Created:** 2026-03-24
-- **Modified:** 2026-03-24
+- **Modified:** 2026-04-28
 
 ## APIs
 
@@ -26,16 +26,19 @@ Mashable content is accessible via the News API, a third-party REST API that pro
 
 **Human URL:** [https://newsapi.org/s/mashable-api](https://newsapi.org/s/mashable-api)
 
+**Base URL:** `https://newsapi.org/v2`
+
 #### Tags:
 
- - News, Articles, Headlines
+ - Articles, Headlines, News
 
 #### Properties
 
 - [Documentation](https://newsapi.org/s/mashable-api)
 - [GettingStarted](https://newsapi.org/docs/get-started)
-- [Endpoints](https://newsapi.org/docs/endpoints/top-headlines)
-- [Endpoints](https://newsapi.org/docs/endpoints/everything)
+- [Endpoints (Top Headlines)](https://newsapi.org/docs/endpoints/top-headlines)
+- [Endpoints (Everything)](https://newsapi.org/docs/endpoints/everything)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/mashable/refs/heads/main/openapi/mashable-openapi.yml)
 
 ## Common Properties
 
@@ -56,6 +59,6 @@ Mashable content is accessible via the News API, a third-party REST API that pro
 
 ## Maintainers
 
-**FN:** API Evangelist
+**FN:** Kin Lane
 
-**Email:** info@apievangelist.com
+**Email:** kin@apievangelist.com
