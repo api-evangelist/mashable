@@ -1,0 +1,13 @@
+{
+  "repo": "mashable",
+  "feeds": [
+    {
+      "source": "http://feeds.mashable.com/mashable",
+      "feed_url": "http://feeds.mashable.com/mashable",
+      "saved": 10,
+      "title": "Mashable"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:30:58Z"
+}
