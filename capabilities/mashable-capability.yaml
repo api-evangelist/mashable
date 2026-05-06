@@ -1,0 +1,203 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mashable via News API
+  description: Mashable content is accessible via the News API, a third-party REST API that provides live headlines, articles,
+    images, and metadata from Mashable and over 150,000 other worldwide news sources. Use the source identifier "mashable"
+    or domain "mashable.com" to retrieve content published by Mashable.
+  tags:
+  - Mashable
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: mashable
+    baseUri: https://newsapi.org/v2
+    description: Mashable via News API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: X-Api-Key
+      value: '{{MASHABLE_TOKEN}}'
+    resources:
+    - name: top-headlines
+      path: /top-headlines
+      operations:
+      - name: getmashabletopheadlines
+        method: GET
+        description: Top headlines for Mashable
+        inputParameters:
+        - name: sources
+          in: query
+          type: string
+          description: Pass "mashable" to limit headlines to Mashable.
+        - name: q
+          in: query
+          type: string
+          description: Keywords or phrase to search within Mashable headlines.
+        - name: pageSize
+          in: query
+          type: integer
+        - name: page
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: everything
+      path: /everything
+      operations:
+      - name: searchmashablearticles
+        method: GET
+        description: Search Mashable articles
+        inputParameters:
+        - name: sources
+          in: query
+          type: string
+          description: Pass "mashable" to scope to Mashable's News API source.
+        - name: domains
+          in: query
+          type: string
+          description: Pass "mashable.com" to scope to Mashable's domain.
+        - name: q
+          in: query
+          type: string
+          description: Keywords or phrase to search.
+        - name: from
+          in: query
+          type: string
+        - name: to
+          in: query
+          type: string
+        - name: language
+          in: query
+          type: string
+        - name: sortBy
+          in: query
+          type: string
+        - name: pageSize
+          in: query
+          type: integer
+        - name: page
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: mashable-rest
+    description: REST adapter for Mashable via News API.
+    resources:
+    - path: /top-headlines
+      name: getmashabletopheadlines
+      operations:
+      - method: GET
+        name: getmashabletopheadlines
+        description: Top headlines for Mashable
+        call: mashable.getmashabletopheadlines
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /everything
+      name: searchmashablearticles
+      operations:
+      - method: GET
+        name: searchmashablearticles
+        description: Search Mashable articles
+        call: mashable.searchmashablearticles
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: mashable-mcp
+    transport: http
+    description: MCP adapter for Mashable via News API for AI agent use.
+    tools:
+    - name: getmashabletopheadlines
+      description: Top headlines for Mashable
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mashable.getmashabletopheadlines
+      with:
+        sources: tools.sources
+        q: tools.q
+        pageSize: tools.pageSize
+        page: tools.page
+      inputParameters:
+      - name: sources
+        type: string
+        description: Pass "mashable" to limit headlines to Mashable.
+      - name: q
+        type: string
+        description: Keywords or phrase to search within Mashable headlines.
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: page
+        type: integer
+        description: page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchmashablearticles
+      description: Search Mashable articles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mashable.searchmashablearticles
+      with:
+        sources: tools.sources
+        domains: tools.domains
+        q: tools.q
+        from: tools.from
+        to: tools.to
+        language: tools.language
+        sortBy: tools.sortBy
+        pageSize: tools.pageSize
+        page: tools.page
+      inputParameters:
+      - name: sources
+        type: string
+        description: Pass "mashable" to scope to Mashable's News API source.
+      - name: domains
+        type: string
+        description: Pass "mashable.com" to scope to Mashable's domain.
+      - name: q
+        type: string
+        description: Keywords or phrase to search.
+      - name: from
+        type: string
+        description: from
+      - name: to
+        type: string
+        description: to
+      - name: language
+        type: string
+        description: language
+      - name: sortBy
+        type: string
+        description: sortBy
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: page
+        type: integer
+        description: page
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    MASHABLE_TOKEN: MASHABLE_TOKEN
