@@ -1,0 +1,123 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Mashable via News API — Articles
+  description: 'Mashable via News API — Articles. 1 operations. Lead operation: Search Mashable articles. Self-contained Naftiko
+    capability covering one Mashable business surface.'
+  tags:
+  - Mashable
+  - Articles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MASHABLE_API_KEY: MASHABLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mashable-articles
+    baseUri: https://newsapi.org/v2
+    description: Mashable via News API — Articles business capability. Self-contained, no shared references.
+    resources:
+    - name: everything
+      path: /everything
+      operations:
+      - name: searchmashablearticles
+        method: GET
+        description: Search Mashable articles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sources
+          in: query
+          type: string
+          description: Pass "mashable" to scope to Mashable's News API source.
+        - name: domains
+          in: query
+          type: string
+          description: Pass "mashable.com" to scope to Mashable's domain.
+        - name: q
+          in: query
+          type: string
+          description: Keywords or phrase to search.
+        - name: from
+          in: query
+          type: string
+        - name: to
+          in: query
+          type: string
+        - name: language
+          in: query
+          type: string
+        - name: sortBy
+          in: query
+          type: string
+        - name: pageSize
+          in: query
+          type: integer
+        - name: page
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: X-Api-Key
+      value: '{{env.MASHABLE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: mashable-articles-rest
+    port: 8080
+    description: REST adapter for Mashable via News API — Articles. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/everything
+      name: everything
+      description: REST surface for everything.
+      operations:
+      - method: GET
+        name: searchmashablearticles
+        description: Search Mashable articles
+        call: mashable-articles.searchmashablearticles
+        with:
+          sources: rest.sources
+          domains: rest.domains
+          q: rest.q
+          from: rest.from
+          to: rest.to
+          language: rest.language
+          sortBy: rest.sortBy
+          pageSize: rest.pageSize
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mashable-articles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Mashable via News API — Articles. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: search-mashable-articles
+      description: Search Mashable articles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mashable-articles.searchmashablearticles
+      with:
+        sources: tools.sources
+        domains: tools.domains
+        q: tools.q
+        from: tools.from
+        to: tools.to
+        language: tools.language
+        sortBy: tools.sortBy
+        pageSize: tools.pageSize
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
