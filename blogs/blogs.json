@@ -4,10 +4,11 @@
     {
       "source": "http://feeds.mashable.com/mashable",
       "feed_url": "http://feeds.mashable.com/mashable",
-      "title": "Mashable",
-      "saved": 46
+      "title": "",
+      "saved": 10,
+      "method": "feed"
     }
   ],
-  "post_count": 106,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 165,
+  "fetched": "2026-06-01T23:35:02Z"
 }
