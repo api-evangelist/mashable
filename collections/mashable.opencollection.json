@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mashable via News API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Headlines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Top headlines for Mashable",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://newsapi.org/v2/top-headlines",
+            "params": [
+              {
+                "name": "sources",
+                "value": "",
+                "type": "query",
+                "description": "Pass \"mashable\" to limit headlines to Mashable."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Keywords or phrase to search within Mashable headlines."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns breaking news headlines for Mashable by passing sources=mashable. Supports optional category, country, and search query filters. An API key is required."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Mashable articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://newsapi.org/v2/everything",
+            "params": [
+              {
+                "name": "sources",
+                "value": "",
+                "type": "query",
+                "description": "Pass \"mashable\" to scope to Mashable's News API source."
+              },
+              {
+                "name": "domains",
+                "value": "",
+                "type": "query",
+                "description": "Pass \"mashable.com\" to scope to Mashable's domain."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Keywords or phrase to search."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Searches across all indexed articles. Limit results to Mashable by passing sources=mashable or domains=mashable.com. An API key is required."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

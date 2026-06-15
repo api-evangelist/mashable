@@ -1,0 +1,342 @@
+{
+  "item": [
+    {
+      "id": "79ce1025-bb1e-49ee-9800-a0ac4331fef3",
+      "name": "Headlines",
+      "description": {
+        "content": "Top headline retrieval.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "764f1092-80e8-43c4-8d79-dbd5112fdc40",
+          "name": "Top headlines for Mashable",
+          "request": {
+            "name": "Top headlines for Mashable",
+            "description": {
+              "content": "Returns breaking news headlines for Mashable by passing sources=mashable. Supports optional category, country, and search query filters. An API key is required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "top-headlines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sources",
+                  "value": "mashable",
+                  "description": "Pass \"mashable\" to limit headlines to Mashable."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Keywords or phrase to search within Mashable headlines."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c920f5a-1209-4c52-a2aa-7b5e35988c49",
+              "name": "Article list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "top-headlines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sources",
+                      "value": "mashable"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"totalResults\": 5913,\n  \"articles\": [\n    {\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"author\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://iJMkolJefCHq.cdH3jrLj-LVYZWv2iuXAT2fW\",\n      \"urlToImage\": \"https://uZ.biyu+4-GAyBuz.hc3O2SxF+sbSxtJ2,wCYOqjBXs\",\n      \"publishedAt\": \"1972-05-07T00:40:23.725Z\",\n      \"content\": \"string\"\n    },\n    {\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"author\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://xeYtGdRTIte.hkoSFkdDO1ZlULqB+RiJLBh+F\",\n      \"urlToImage\": \"http://hrbwC.ocoMzw6B\",\n      \"publishedAt\": \"1949-03-28T00:33:06.855Z\",\n      \"content\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "02b90681-aaab-4ffe-8d04-35ba2057c42c",
+      "name": "Articles",
+      "description": {
+        "content": "Search across all indexed articles.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ad5d04b4-cc22-4bf2-a68b-9c62a5ee9df0",
+          "name": "Search Mashable articles",
+          "request": {
+            "name": "Search Mashable articles",
+            "description": {
+              "content": "Searches across all indexed articles. Limit results to Mashable by passing sources=mashable or domains=mashable.com. An API key is required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "everything"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sources",
+                  "value": "mashable",
+                  "description": "Pass \"mashable\" to scope to Mashable's News API source."
+                },
+                {
+                  "disabled": false,
+                  "key": "domains",
+                  "value": "<string>",
+                  "description": "Pass \"mashable.com\" to scope to Mashable's domain."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Keywords or phrase to search."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "en"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "publishedAt"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7dfa1da1-d482-4cf0-8890-028dbecd1422",
+              "name": "Article search response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "everything"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sources",
+                      "value": "mashable"
+                    },
+                    {
+                      "key": "domains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "en"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "publishedAt"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"totalResults\": 7117,\n  \"articles\": [\n    {\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"author\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://zilwewJQkKwnOHtqDBqSlpUBqLQTeC.fzL.Y3k0bIw8xX6rfwE\",\n      \"urlToImage\": \"https://cALEzanWJdAYXYlfUVAs.xlwpK0vmyp,fOUVK5UWY-l7u1yg9Q43CqX8.SVZm01BH5aPsRTQgRN19cNiQHJYclAyIKc\",\n      \"publishedAt\": \"2003-03-15T06:03:24.388Z\",\n      \"content\": \"string\"\n    },\n    {\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"author\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"http://CoTinxnEXypMciLWPCl.pyhIC-HymfPKShqjpSRMJDSxQbtkwawo.\",\n      \"urlToImage\": \"http://XYwfKFkuwqhcgFBihZuVg.rzboSte1o-PMyQmbuL0U7tT8g1YNlyOJwCGf2LFt+RfWihrgl\",\n      \"publishedAt\": \"2022-01-22T07:07:36.337Z\",\n      \"content\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://newsapi.org/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "10fcbfc3-4b21-4597-b3ca-d24ab9a25134",
+    "name": "Mashable via News API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mashable content is accessible via the News API, a third-party REST API that provides live headlines, articles, images, and metadata from Mashable and over 150,000 other worldwide news sources. Use the source identifier \"mashable\" or domain \"mashable.com\" to retrieve content published by Mashable.\n\nContact Support:\n Name: News API",
+      "type": "text/plain"
+    }
+  }
+}
