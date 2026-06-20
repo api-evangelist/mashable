@@ -5,7 +5,7 @@ description: >-
   Mashable has grown into a global, multi-platform media and entertainment company. Mashable does not publish a
   first-party REST API, but its headlines and articles are accessible via the third-party News API REST service.
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 tags:
   - Articles
@@ -29,7 +29,7 @@ apis:
       publication date, and author. An API key is required to authenticate requests.
     humanURL: https://newsapi.org/s/mashable-api
     baseURL: https://newsapi.org/v2
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     tags:
       - Articles
       - Headlines
