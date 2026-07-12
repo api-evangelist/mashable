@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/mashable-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-Api-Key
+  description: News API key. May also be passed via apiKey query parameter.
+  sources:
+  - openapi/mashable-openapi.yml

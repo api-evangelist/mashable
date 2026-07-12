@@ -46,6 +46,10 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/mashable/refs/heads/main/openapi/mashable-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/mashable-domain-security.yml
+  - type: Authentication
+    url: authentication/mashable-authentication.yml
   - url: https://mashable.com/
     name: Mashable Website
     type: Website
