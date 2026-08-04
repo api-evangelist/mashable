@@ -1,0 +1,185 @@
+openapi: 3.0.3
+info:
+  title: Mashable via News API
+  summary: >-
+    Access Mashable headlines and articles through the News API REST service.
+  description: >-
+    Mashable content is accessible via the News API, a third-party REST API
+    that provides live headlines, articles, images, and metadata from
+    Mashable and over 150,000 other worldwide news sources. Use the source
+    identifier "mashable" or domain "mashable.com" to retrieve content
+    published by Mashable.
+  version: '2'
+  contact:
+    name: News API
+    url: https://newsapi.org/
+servers:
+  - url: https://newsapi.org/v2
+    description: News API production endpoint
+tags:
+  - name: Headlines
+    description: Top headline retrieval.
+  - name: Articles
+    description: Search across all indexed articles.
+security:
+  - apiKeyAuth: []
+paths:
+  /top-headlines:
+    get:
+      tags:
+        - Headlines
+      summary: Top headlines for Mashable
+      description: >-
+        Returns breaking news headlines for Mashable by passing
+        sources=mashable. Supports optional category, country, and search
+        query filters. An API key is required.
+      operationId: getMashableTopHeadlines
+      parameters:
+        - name: sources
+          in: query
+          description: Pass "mashable" to limit headlines to Mashable.
+          schema:
+            type: string
+            default: mashable
+        - name: q
+          in: query
+          description: Keywords or phrase to search within Mashable headlines.
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Article list response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArticlesResponse'
+  /everything:
+    get:
+      tags:
+        - Articles
+      summary: Search Mashable articles
+      description: >-
+        Searches across all indexed articles. Limit results to Mashable by
+        passing sources=mashable or domains=mashable.com. An API key is
+        required.
+      operationId: searchMashableArticles
+      parameters:
+        - name: sources
+          in: query
+          description: Pass "mashable" to scope to Mashable's News API source.
+          schema:
+            type: string
+            default: mashable
+        - name: domains
+          in: query
+          description: Pass "mashable.com" to scope to Mashable's domain.
+          schema:
+            type: string
+        - name: q
+          in: query
+          description: Keywords or phrase to search.
+          schema:
+            type: string
+        - name: from
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: to
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: language
+          in: query
+          schema:
+            type: string
+            default: en
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+            enum:
+              - relevancy
+              - popularity
+              - publishedAt
+            default: publishedAt
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Article search response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArticlesResponse'
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+      description: News API key. May also be passed via apiKey query parameter.
+  schemas:
+    Article:
+      type: object
+      properties:
+        source:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        author:
+          type: string
+          nullable: true
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        url:
+          type: string
+          format: uri
+        urlToImage:
+          type: string
+          format: uri
+          nullable: true
+        publishedAt:
+          type: string
+          format: date-time
+        content:
+          type: string
+          nullable: true
+    ArticlesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        totalResults:
+          type: integer
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'

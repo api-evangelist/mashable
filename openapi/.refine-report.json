@@ -1,0 +1,16 @@
+{
+  "provider": "mashable",
+  "sources": [
+    "mashable-articles-api-openapi.yml",
+    "mashable-headlines-api-openapi.yml"
+  ],
+  "outputs": [
+    "mashable-articles-api-openapi.yml",
+    "mashable-headlines-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
