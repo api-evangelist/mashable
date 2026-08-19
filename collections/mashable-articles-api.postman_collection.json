@@ -1,0 +1,213 @@
+{
+  "item": [
+    {
+      "id": "7bb17bfb-6a87-42ce-b0d0-24aba952bd8e",
+      "name": "Articles",
+      "description": {
+        "content": "Search across all indexed articles.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b92bc6b3-111e-4c34-b14d-d1069c7bfd4c",
+          "name": "Search Mashable articles",
+          "request": {
+            "name": "Search Mashable articles",
+            "description": {
+              "content": "Searches across all indexed articles. Limit results to Mashable by passing sources=mashable or domains=mashable.com. An API key is required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "everything"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sources",
+                  "value": "mashable",
+                  "description": "Pass \"mashable\" to scope to Mashable's News API source."
+                },
+                {
+                  "disabled": false,
+                  "key": "domains",
+                  "value": "<string>",
+                  "description": "Pass \"mashable.com\" to scope to Mashable's domain."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Keywords or phrase to search."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "en"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "publishedAt"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a88db8b-1c47-4ba7-b12f-722ab2252b06",
+              "name": "Article search response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "everything"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sources",
+                      "value": "mashable"
+                    },
+                    {
+                      "key": "domains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "en"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "publishedAt"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"totalResults\": 8446,\n  \"articles\": [\n    {\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"author\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"http://epYkQkeMMrfTGghetV.wwdpV3ESqcORi58qLBogQNb53-Zskn5WdA4ERINcBgQ.rinmIP\",\n      \"urlToImage\": \"https://QNmZfRvBAybInUiGvbXGRTV.jlt.fYXCeU\",\n      \"publishedAt\": \"2004-11-27T02:33:49.966Z\",\n      \"content\": \"string\"\n    },\n    {\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"author\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://UFcoylDkgVMrdPcxrCfgSDPN.pcjL0bFFk7nQNhhMqdQx.HfrSbf2WeDFLBnwtBStVPbpkh8QDZUxwnS1XQdAGD6oVQEp921e3xw\",\n      \"urlToImage\": \"http://wh.lbdtM+zpeJ\",\n      \"publishedAt\": \"1996-10-30T23:21:14.411Z\",\n      \"content\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://newsapi.org/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8a73ea4d-d934-46d8-be04-ca721f5a1407",
+    "name": "Mashable via News Articles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mashable content is accessible via the News API, a third-party REST API that provides live headlines, articles, images, and metadata from Mashable and over 150,000 other worldwide news sources. Use the source identifier \"mashable\" or domain \"mashable.com\" to retrieve content published by Mashable.\n\nContact Support:\n Name: News API",
+      "type": "text/plain"
+    }
+  }
+}

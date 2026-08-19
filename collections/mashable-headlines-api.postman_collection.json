@@ -1,0 +1,167 @@
+{
+  "item": [
+    {
+      "id": "2a122022-e99f-4f07-b503-11ac04ee6801",
+      "name": "Headlines",
+      "description": {
+        "content": "Top headline retrieval.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1aa3e4c2-5809-4105-a0a7-93442a00ad5c",
+          "name": "Top headlines for Mashable",
+          "request": {
+            "name": "Top headlines for Mashable",
+            "description": {
+              "content": "Returns breaking news headlines for Mashable by passing sources=mashable. Supports optional category, country, and search query filters. An API key is required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "top-headlines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sources",
+                  "value": "mashable",
+                  "description": "Pass \"mashable\" to limit headlines to Mashable."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Keywords or phrase to search within Mashable headlines."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f39e26d-c1f8-4dda-89df-d73de339c038",
+              "name": "Article list response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "top-headlines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sources",
+                      "value": "mashable"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"totalResults\": 1714,\n  \"articles\": [\n    {\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"author\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://HDdhhbghWZrKNNRVlkCFLuGkFacrjDun.uqjjDJLG1hywihFkj86u1JWa6weP6DUeMHyCcztvhmORkj\",\n      \"urlToImage\": \"http://SKge.uucSQjDm6HIZ7NS.LJWB.s3AXmNAfQzO4W+OziSxBy3-0\",\n      \"publishedAt\": \"1973-08-06T11:01:16.656Z\",\n      \"content\": \"string\"\n    },\n    {\n      \"source\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"author\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://sWkTUnbCdACzLzDlNQNesgACU.hjvcij-zjJulPVKq.DDo9i6K6aSNT4E48.A\",\n      \"urlToImage\": \"http://ezNvlNGpmruvdIHMhgIuU.vkxJhzKeXJ1Zq7WuAf+EZygv9tIeLPYLKJ92W2zXERarBK7rEZSuS6MSpCXml,DM.vK\",\n      \"publishedAt\": \"1947-11-20T23:31:47.468Z\",\n      \"content\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://newsapi.org/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9b8bcd4b-d8d5-4012-b30e-176288597ffd",
+    "name": "Mashable via News Articles Headlines API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mashable content is accessible via the News API, a third-party REST API that provides live headlines, articles, images, and metadata from Mashable and over 150,000 other worldwide news sources. Use the source identifier \"mashable\" or domain \"mashable.com\" to retrieve content published by Mashable.\n\nContact Support:\n Name: News API",
+      "type": "text/plain"
+    }
+  }
+}
