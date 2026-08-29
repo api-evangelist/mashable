@@ -5,6 +5,18 @@ description: >-
   Mashable has grown into a global, multi-platform media and entertainment company. Mashable does not publish a
   first-party REST API, but its headlines and articles are accessible via the third-party News API REST service.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
