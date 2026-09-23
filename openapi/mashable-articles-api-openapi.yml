@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Mashable via News Articles API
   summary: Access Mashable headlines and articles through the News API REST service.
@@ -84,17 +84,6 @@ paths:
                 $ref: '#/components/schemas/ArticlesResponse'
 components:
   schemas:
-    ArticlesResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        totalResults:
-          type: integer
-        articles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Article'
     Article:
       type: object
       properties:
@@ -106,26 +95,41 @@ components:
             name:
               type: string
         author:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         title:
           type: string
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         url:
           type: string
           format: uri
         urlToImage:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         publishedAt:
           type: string
           format: date-time
         content:
+          type:
+          - string
+          - 'null'
+    ArticlesResponse:
+      type: object
+      properties:
+        status:
           type: string
-          nullable: true
+        totalResults:
+          type: integer
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
   securitySchemes:
     apiKeyAuth:
       type: apiKey
