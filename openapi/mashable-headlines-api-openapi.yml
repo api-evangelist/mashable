@@ -55,6 +55,17 @@ paths:
                 $ref: '#/components/schemas/ArticlesResponse'
 components:
   schemas:
+    ArticlesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        totalResults:
+          type: integer
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
     Article:
       type: object
       properties:
@@ -90,17 +101,6 @@ components:
           type:
           - string
           - 'null'
-    ArticlesResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        totalResults:
-          type: integer
-        articles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Article'
   securitySchemes:
     apiKeyAuth:
       type: apiKey
