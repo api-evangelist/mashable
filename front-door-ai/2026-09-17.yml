@@ -1,0 +1,32 @@
+# Front Door AI Index — mashable — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: mashable
+  lexicon_version: '1.0'
+  probed_at: '2026-09-25'
+  host: mashable.com
+  final_host: mashable.com
+  ownership: own
+  owner: mashable
+  shares_host_with: null
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 6
+  band: 4
+  band_label: moderate
+  host_score: 6
+  density: 3.66
+  words: 1638
+  tiers:
+    agentic: 0
+    core: 5
+    model: 1
+  ambiguous: 5
+  top_terms:
+    AI: 3
+    smart: 3
+    artificial intelligence: 2
+    intelligence: 2
+    OpenAI: 1
